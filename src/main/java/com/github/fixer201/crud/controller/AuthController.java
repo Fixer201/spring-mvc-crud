@@ -1,5 +1,6 @@
 package com.github.fixer201.crud.controller;
 
+import com.github.fixer201.crud.dto.UserLoginRequest;
 import com.github.fixer201.crud.dto.UserRegisterRequest;
 import com.github.fixer201.crud.dto.UserResponse;
 import com.github.fixer201.crud.service.UserService;
@@ -23,6 +24,10 @@ public class AuthController {
         return userService.registerNewUser(request);
     }
 
+    @PostMapping("/login")
+    public UserResponse login(@Valid @RequestBody UserLoginRequest request) {
+        return userService.login(request);
+    }
 
     @GetMapping("/me")
     public UserResponse me() {
